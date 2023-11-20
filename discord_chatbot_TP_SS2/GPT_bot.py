@@ -2,7 +2,7 @@ import openai
 from openai import ChatCompletion, OpenAI, AsyncOpenAI
 
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "YOUR_OPENAI_TOKEN"
 
 # Initialisation du client OpenAI
 openai.api_key = OPENAI_API_KEY
@@ -19,17 +19,3 @@ async def openai_chatbot(user_message):
     )
     return openai_response['choices'][0]['message']['content']
 
-
-
-"""openai.api_key = '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'
-async def openai_chatbot(user_message):
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=user_message,
-        max_tokens=3000,
-        temperature=0.7
-    )
-
-    output = response["choices"][0]["text"]
-    return output
-"""
