@@ -7,27 +7,17 @@ from autocorrect import Speller
 
 
 # Token of the API
-TMDB_api_key = "9cbc4d8610399f5e4c023fe8a815716c"
+TMDB_api_key = "TMDB_TOKEN"
 
 # token of the movie bot
-#wit_key = "KRRG2KRS6VANQSMMR4GGQVTVEQF3VZIY" #(old)
+wit_key = "WIT_TOKEN" 
 
-wit_key = "NATY7CEUZZMENAHA5VTJ2ACTYU4TBXEG" #(new)@
 # Discord token
-discord_key = "MTE3NDMzNjkwODk3Mzg0MjQ2NA.Gi4UzX.N3YyXMtowF8azl7aSJEZHonPoKPMktJFmaTPHE"
-
-"""# Intents of discord
-intents = Intents.default()
-intents.message_content = True"""
+discord_key = "DISCORD_TOKEN"
 
 # Initialization of the wit model
 wit_client = Wit(wit_key)
 
-"""# Function to autocorrect user message
-def autocorrect_user_input(usr_input):
-    spell = Speller()
-    return spell(usr_input)
-"""
 
 # Function to extract name of the movie in the user message
 def extract_movie_names(user_message):
