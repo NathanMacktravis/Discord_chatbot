@@ -5,17 +5,16 @@ from GPT_bot import openai_chatbot
 from movie_chatbot import *
 
 # Token of the weather wit model
-WIT_WEATHER_KEY = "BTCWYO2NVBVYUNUOWKLU2KE5VKJMGKCT"
+WIT_WEATHER_KEY = "WIT_WEATHER_TOKEN"
 
 # Token of the API
-TMDB_api_key = "9cbc4d8610399f5e4c023fe8a815716c"
+TMDB_api_key = "TMDB_TOKEN"
 
 # token of the movie wit model
-#WIT_MOVIE_KEY = "KRRG2KRS6VANQSMMR4GGQVTVEQF3VZIY" #(old)
-WIT_MOVIE_KEY = "NATY7CEUZZMENAHA5VTJ2ACTYU4TBXEG" #(new)
+WIT_MOVIE_KEY = "WIT_MOVIE_TOKEN" #(new)
 
 # Discord token
-discord_key = "MTE3NDMzNjkwODk3Mzg0MjQ2NA.GEtGTP.Z1v7X6M5-A6GDbBlOhg8IOChO8imT2SoFkx09A"
+discord_key = "DISCORD_TOKEN"
 
 intents = Intents.default()
 intents.message_content = True
@@ -60,8 +59,7 @@ class MyClient(discord.Client):
         # Detect intent (movie, weather, or unknown)
         intent = detect_intent(user_message)
         response_message = ""  # Initialisation avec une chaîne vide
-
-###################
+        
         if intent == 'movie':
             # Extract the names of the movies in the user message
             movie_names = extract_movie_names(user_message)
@@ -74,9 +72,6 @@ class MyClient(discord.Client):
                         await message.channel.send(file=discord.File(poster, 'movie_poster.png'))
                     await message.channel.send(response_movie)
                 print("Here we have a movie question")
-
-
-#################
 
         elif intent == 'weather':
             # Get weather information for the message
@@ -95,22 +90,3 @@ class MyClient(discord.Client):
 # Initialise le client Discord
 discord_client = MyClient(intents=intents)
 discord_client.run(discord_key)
-
-
-
-"""        if intent == 'movie':
-            # Extract the names of the movies in the user message
-            movie_names = extract_movie_names(user_message)
-
-            # Get movie information for each movie
-            if movie_names:
-                responses_movies, poster_image = movie_infos(movie_names)
-                for response_movie in responses_movies:
-                    response_message += f"{response_movie}\n"
-
-                if poster_image:
-                    # Send the image in Discord chat
-                    await message.channel.send(file=discord.File(poster_image, 'movie_poster.png'))
-                else:
-                    await message.channel.send("Aucune affiche trouvée pour ce film.")
-                print("Here we have a movie question")"""
