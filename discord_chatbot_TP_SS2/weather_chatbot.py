@@ -11,9 +11,6 @@ import pytz  # To convert the current time using the obtained timezone
 from geopy.geocoders import Nominatim
 
 
-
-################################################
-
 # Function to autocorrect user input
 def autocorrect_user_input(usr_input):
     spell = Speller()
